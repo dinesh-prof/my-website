@@ -100,7 +100,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 2rem 4rem;
+            padding: 2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1049,8 +1049,17 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
+            .hero {
+                padding: 6rem 2rem 4rem;
+            }
+
             .hero-content {
                 grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
             }
 
             .about-grid,
@@ -1136,7 +1145,7 @@
         <button class="tooltip-close-btn" onclick="closeTooltip()">×</button>
         <h4 id="tooltipTitle"></h4>
         <p id="tooltipDescription"></p>
-        <a id="tooltipLink" href="#" target="_blank">Learn more →</a>
+        <a id="tooltipLink" href="" target="_blank" rel="noopener noreferrer">Learn more →</a>
     </div>
 
     <!-- Interest Modal -->
@@ -1578,6 +1587,7 @@
             const link = document.getElementById('tooltipLink');
             link.href = skill.link;
             link.target = '_blank';
+            link.rel = 'noopener noreferrer';
             
             const x = event.pageX;
             const y = event.pageY;
@@ -1643,7 +1653,7 @@
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            const mailtoLink = `mailto:info@dineshsahu.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+            const mailtoLink = `mailto:dinesh.sahu1512@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
                 `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
             )}`;
             
