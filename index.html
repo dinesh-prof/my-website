@@ -1110,6 +1110,29 @@
             .menu-toggle {
                 display: flex;
             }
+
+            /* Mobile tooltip styles */
+            .skill-tooltip {
+                position: fixed !important;
+                left: 1rem !important;
+                right: 1rem !important;
+                top: 50% !important;
+                transform: translateY(-50%) !important;
+                max-width: none !important;
+                width: calc(100% - 2rem);
+                padding: 1.5rem;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
+            .skill-tooltip h4 {
+                font-size: 1.2rem;
+                padding-right: 2rem;
+            }
+
+            .skill-tooltip p {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -1589,11 +1612,17 @@
             link.target = '_blank';
             link.rel = 'noopener noreferrer';
             
-            const x = event.pageX;
-            const y = event.pageY;
+            // Check if mobile
+            const isMobile = window.innerWidth <= 1024;
             
-            tooltip.style.left = `${Math.min(x, document.documentElement.scrollWidth - 420)}px`;
-            tooltip.style.top = `${y + 20}px`;
+            if (!isMobile) {
+                const x = event.pageX;
+                const y = event.pageY;
+                
+                tooltip.style.left = `${Math.min(x, document.documentElement.scrollWidth - 420)}px`;
+                tooltip.style.top = `${y + 20}px`;
+            }
+            // Mobile positioning is handled by CSS
             
             tooltip.classList.add('show');
             event.stopPropagation();
