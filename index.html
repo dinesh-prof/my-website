@@ -1207,7 +1207,7 @@
             </div>
             <div class="hero-stats">
                 <div class="stat-box">
-                    <span class="stat-number">13+</span>
+                    <span class="stat-number">14+</span>
                     <span class="stat-label">Years Experience</span>
                 </div>
                 <div class="stat-box">
@@ -1247,7 +1247,7 @@
             <div class="about-card">
                 <span class="about-icon">📚</span>
                 <h3>Continuous Learning</h3>
-                <p>Currently pursuing my MBA to complement 13+ years of technical expertise with strategic business acumen. I believe in bridging technology and business strategy, ensuring every solution aligns with organizational objectives and drives meaningful impact.</p>
+                <p>Currently pursuing my MBA to complement 14+ years of technical expertise with strategic business acumen. I believe in bridging technology and business strategy, ensuring every solution aligns with organizational objectives and drives meaningful impact.</p>
             </div>
             <div class="about-card">
                 <span class="about-icon">🗣️</span>
@@ -1306,6 +1306,15 @@
             <p class="section-subtitle">Click to explore • Hover to learn</p>
         </div>
         <div class="skills-wrapper">
+            <div class="tech-category">
+                <div class="tech-header" onclick="toggleTech(this)">
+                    <h3>🤖 AI-Assisted Development</h3>
+                    <span class="tech-toggle">▼</span>
+                </div>
+                <div class="tech-content">
+                    <div class="tech-items" id="ai"></div>
+                </div>
+            </div>
             <div class="tech-category">
                 <div class="tech-header" onclick="toggleTech(this)">
                     <h3>💻 Languages</h3>
@@ -1462,13 +1471,20 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Dinesh Kumar Sahu. Crafted with creativity and passion.</p>
+        <p>&copy; 2026 Dinesh Kumar Sahu. Crafted with creativity and passion.</p>
         <p style="margin-top: 0.5rem; opacity: 0.6;">Tampa, FL | Technology Leader | Mentor | Innovator</p>
     </footer>
 
     <script>
         // Same skills data as before
         const skillsData = {
+            ai: {
+                'Devin AI': { desc: 'Autonomous AI software engineering agent; used to delegate well-scoped coding tasks guided by Markdown context files.', link: 'https://en.wikipedia.org/wiki/Devin_AI' },
+                'GitHub Copilot': { desc: 'AI pair programmer providing real-time code suggestions and autocompletion inside the IDE.', link: 'https://en.wikipedia.org/wiki/GitHub_Copilot' },
+                'Prompt Engineering': { desc: 'Structuring instructions to get accurate, consistent output from AI models.', link: 'https://en.wikipedia.org/wiki/Prompt_engineering' },
+                'Context Engineering': { desc: 'Curating the files, rules and examples an AI agent sees, such as Markdown context files describing architecture and coding standards.', link: 'https://en.wikipedia.org/wiki/Prompt_engineering' },
+                'Human-in-the-Loop': { desc: 'A person reviews and approves AI output before it is accepted, keeping accountability for quality.', link: 'https://en.wikipedia.org/wiki/Human-in-the-loop' }
+            },
             languages: {
                 'Java': { desc: 'A high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible.', link: 'https://en.wikipedia.org/wiki/Java_(programming_language)' },
                 'JavaScript': { desc: 'A high-level, interpreted programming language that is one of the core technologies of the World Wide Web.', link: 'https://en.wikipedia.org/wiki/JavaScript' },
@@ -1505,6 +1521,7 @@
                 'Apigee API Gateway': { desc: 'API management and gateway platform for controlling API traffic.', link: 'https://en.wikipedia.org/wiki/Apigee' },
                 'OAuth 2.0': { desc: 'Industry-standard protocol for authorization and secure API access.', link: 'https://en.wikipedia.org/wiki/OAuth' },
                 'Keycloak': { desc: 'Open-source identity and access management solution.', link: 'https://en.wikipedia.org/wiki/Keycloak' },
+                'Okta': { desc: 'Cloud identity and access management platform supporting OAuth 2.0 and OpenID Connect.', link: 'https://en.wikipedia.org/wiki/Okta,_Inc.' },
                 'REST': { desc: 'Representational State Transfer - architectural style for designing networked applications.', link: 'https://en.wikipedia.org/wiki/Representational_state_transfer' },
                 'SOAP': { desc: 'Simple Object Access Protocol - messaging protocol for exchanging structured information.', link: 'https://en.wikipedia.org/wiki/SOAP' }
             },
@@ -1513,14 +1530,19 @@
                 'SOA': { desc: 'Service-Oriented Architecture - architectural pattern for designing software systems as collections of services.', link: 'https://en.wikipedia.org/wiki/Service-oriented_architecture' },
                 'Event-Driven Architecture': { desc: 'Software architecture promoting event production, detection, and reaction.', link: 'https://en.wikipedia.org/wiki/Event-driven_architecture' },
                 'CQRS': { desc: 'Command Query Responsibility Segregation pattern.', link: 'https://en.wikipedia.org/wiki/Command%E2%80%93query_separation' },
-                'Domain-Driven Design': { desc: 'Approach to software development focusing on modeling business domains.', link: 'https://en.wikipedia.org/wiki/Domain-driven_design' }
+                'Domain-Driven Design': { desc: 'Approach to software development focusing on modeling business domains.', link: 'https://en.wikipedia.org/wiki/Domain-driven_design' },
+                'Test-Driven Development': { desc: 'Writing tests before code so tests drive the design, producing modular, well-tested components.', link: 'https://en.wikipedia.org/wiki/Test-driven_development' }
             },
             cloud: {
                 'AWS': { desc: 'Amazon Web Services - comprehensive cloud computing platform.', link: 'https://en.wikipedia.org/wiki/Amazon_Web_Services' },
                 'Docker': { desc: 'Platform for developing, shipping, and running applications in containers.', link: 'https://en.wikipedia.org/wiki/Docker_(software)' },
                 'Kubernetes': { desc: 'Container orchestration platform for automating deployment and scaling.', link: 'https://en.wikipedia.org/wiki/Kubernetes' },
+                'OpenShift': { desc: 'Red Hat enterprise Kubernetes platform for building, deploying and managing containerized applications.', link: 'https://en.wikipedia.org/wiki/OpenShift' },
+                'PCF': { desc: 'Pivotal Cloud Foundry - enterprise distribution of Cloud Foundry, an open-source platform as a service for deploying applications.', link: 'https://en.wikipedia.org/wiki/Cloud_Foundry' },
                 'Jenkins': { desc: 'Automation server for continuous integration and delivery.', link: 'https://en.wikipedia.org/wiki/Jenkins_(software)' },
                 'GitLab CI/CD': { desc: 'Continuous integration and deployment platform.', link: 'https://docs.gitlab.com/ee/ci/' },
+                'Harness': { desc: 'Software delivery platform for continuous delivery, deployment pipelines and automated rollbacks.', link: 'https://www.harness.io/' },
+                'Tekton': { desc: 'Open-source, Kubernetes-native framework for building CI/CD pipelines.', link: 'https://tekton.dev/' },
                 'Git': { desc: 'Distributed version control system.', link: 'https://en.wikipedia.org/wiki/Git' }
             }
         };
